@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  --primary-color: #89a8b2;
+  --secondary-color: #e5e1da;
+  --tertiary-color: #b3c8cf;
+  --accent-color: #89a8b2;
+
+  --text-color: #1e1e1e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Quantico", sans-serif;
+}

@@ -1,0 +1,37 @@
+.main_navbar {
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-color);
+}
+
+.navbar_header {
+  cursor: default;
+}
+
+.mini_navbar {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+.mini_navbar_paragraf {
+  cursor: pointer;
+  position: relative;
+  &::after {
+    content: " ";
+    position: absolute;
+    background-color: var(--accent-color);
+    transition: 0.3s;
+    left: 50%;
+    transform: translate(-50%, 1100%);
+    width: 0;
+    height: 2px;
+  }
+  &:hover::after {
+    width: 150%;
+  }
+}
