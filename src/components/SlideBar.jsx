@@ -1,10 +1,13 @@
 import React from "react";
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
 const SlideBar = () => {
   return (
-    <div>
-      <h1>Salam</h1>
-    </div>
+    <h1 className="slidebar_container">
+      <FaLinkedin className="slidebar_icon" />
+      <FaGithub className="slidebar_icon" />
+      <FaInstagram className="slidebar_icon" />
+    </h1>
   );
 };
 
