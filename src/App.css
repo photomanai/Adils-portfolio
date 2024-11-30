@@ -53,6 +53,12 @@
   animation: typing 3s steps(50), cursor 0.3s step-end infinite alternate;
 }
 
+.divider {
+  border: 1px solid var(--accent-color);
+  width: 98%;
+  margin: 0 auto;
+}
+
 @keyframes cursor {
   50% {
     border-color: transparent;
@@ -336,4 +342,11 @@
 
 .contact_text_area {
   height: 200px;
+}
+
+.footer_main {
+  width: 95%;
+  margin: 2px auto;
+  display: flex;
+  justify-content: space-between;
 }
