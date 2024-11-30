@@ -114,7 +114,7 @@ const Projects = () => {
   ];
 
   return (
-    <div className="main main_projects">
+    <div className="main main_projects" id="projects">
       <h1 className="header">Projects</h1>
       <div className="projects_container">
         {projects &&

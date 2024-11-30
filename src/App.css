@@ -1,3 +1,8 @@
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
 .button {
   padding: 10px 30px;
   margin: 10px;
@@ -83,7 +88,12 @@
   justify-content: space-between;
   color: var(--text-color);
   /* background-color: var(--secondary-color); */
-  backdrop-filter: blur(40px);
+  backdrop-filter: blur(100px);
+  transition: transform 0.3s ease;
+}
+
+.main_navbar.hidden {
+  transform: translateY(-100%);
 }
 
 .navbar_header {
@@ -121,11 +131,11 @@
   z-index: 20;
   top: 50%;
   left: 0;
-  height: 35vh;
+  height: 36vh;
   transform: translate(0, -50%);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   background-color: var(--primary-color);
   padding: 3px 2px;
   border-radius: 0 5px 5px 0;
@@ -342,6 +352,7 @@
 
 .contact_text_area {
   height: 200px;
+  resize: none;
 }
 
 .footer_main {

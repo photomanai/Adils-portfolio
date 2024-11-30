@@ -4,9 +4,15 @@ import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 const SlideBar = () => {
   return (
     <h1 className="slidebar_container">
-      <FaLinkedin className="slidebar_icon" />
-      <FaGithub className="slidebar_icon" />
-      <FaInstagram className="slidebar_icon" />
+      <a href="https://www.linkedin.com/in/adil-abdulkerimov">
+        <FaLinkedin className="slidebar_icon" />
+      </a>
+      <a href="https://github.com/photomanai">
+        <FaGithub className="slidebar_icon" />
+      </a>
+      <a href="https://www.instagram.com/photoman.ai">
+        <FaInstagram className="slidebar_icon" />
+      </a>
     </h1>
   );
 };
