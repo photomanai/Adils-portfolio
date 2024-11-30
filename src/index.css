@@ -2,11 +2,12 @@
 
 :root {
   --primary-color: #7797a2;
-  --secondary-color: #e5e1da;
+  --secondary-color: #e2e2e2;
   --tertiary-color: #b3c8cf;
   --accent-color: #89a8b2;
 
   --text-color: #1e1e1e;
+  --secondary-text-color: #494949;
 }
 
 * {

@@ -1,10 +1,83 @@
+.button {
+  padding: 10px 30px;
+  margin: 10px;
+  font-size: 18px;
+  border: 0;
+  background-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background-color: var(--primary-color);
+  }
+  &:active {
+    background-color: var(--tertiary-color);
+  }
+}
+
+.header {
+  font-size: 56px;
+  margin: 20px;
+  /* position: relative; */
+  &::after,
+  &::before {
+    position: absolute;
+    transform: translate(0, 1400%);
+    content: "";
+    width: 38%;
+    height: 3px;
+    background-color: var(--accent-color);
+  }
+  &::before {
+    left: 20px;
+  }
+  &::after {
+    right: 20px;
+  }
+}
+
+.main {
+  margin: 2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.text {
+  border-right: 5px solid;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(50), cursor 0.3s step-end infinite alternate;
+}
+
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
 .main_navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
   padding: 10px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: var(--text-color);
-  background-color: var(--secondary-color);
+  /* background-color: var(--secondary-color); */
+  backdrop-filter: blur(40px);
 }
 
 .navbar_header {
@@ -69,6 +142,7 @@
   margin: 2rem auto;
   justify-content: space-between;
   align-items: center;
+  height: 100vh;
 }
 
 .home_text_container {
@@ -83,7 +157,7 @@
     content: " ";
     top: 0;
     left: 25%;
-    width: 70%;
+    width: 55%;
     height: 3px;
     transform: translate(0, 1000%);
     background-color: var(--accent-color);
@@ -91,6 +165,7 @@
 }
 
 .home_header_paragraf {
+  width: 600px;
   font-size: 52px;
 }
 
@@ -102,16 +177,19 @@
   width: 100%;
 }
 
-.home_btn:nth-child(1) {
+.home_btn {
   padding: 8px 25px;
   margin: 10px;
   font-size: 16px;
+  transition: 0.3s;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.home_btn:nth-child(1) {
   border: 0;
   background-color: var(--accent-color);
   border: 1px solid var(--accent-color);
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
   &:hover {
     background-color: var(--primary-color);
   }
@@ -121,18 +199,51 @@
 }
 
 .home_btn:nth-child(2) {
-  padding: 8px 25px;
-  margin: 10px;
-  font-size: 16px;
   border: 1px solid var(--accent-color);
   background-color: var(--secondary-color);
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
   &:hover {
     background-color: var(--primary-color);
   }
   &:active {
     background-color: var(--tertiary-color);
   }
+}
+
+.main_about {
+  max-width: 550px;
+}
+
+.about_paragraf {
+  font-size: 20px;
+  margin: 2rem 0;
+}
+
+.main_skils {
+  max-width: 800px;
+}
+
+.skills_icon {
+  box-sizing: content-box;
+  margin: 10px;
+  padding: 10px;
+  font-size: 44px;
+  background-color: var(--accent-color);
+  border-radius: 5px;
+  color: var(--secondary-color);
+  transition: 0.3s;
+  &:hover {
+    color: var(--text-color);
+    background-color: var(--primary-color);
+  }
+}
+
+.skils_paragraf {
+  font-size: 17px;
+  margin: 10px;
+  color: var(--secondary-text-color);
+}
+
+.skils_container {
+  margin: 10px;
+  width: 100%;
 }

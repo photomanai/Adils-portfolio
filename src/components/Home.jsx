@@ -7,7 +7,7 @@ const Home = () => {
       <div className="home_text_container">
         <div className="home_header_container">
           <h1 className="home_header">HELLO</h1>
-          <h1 className="home_header_paragraf">I AM ADIL ABDULKERIMOV</h1>
+          <h1 className="home_header_paragraf text">I AM ADIL ABDULKERIM</h1>
         </div>
         <div className="home_btn_container">
           <button className="home_btn">Hire Me</button>
