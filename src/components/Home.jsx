@@ -2,6 +2,13 @@ import React from "react";
 import homeRight from "../assets/home-right.png";
 
 const Home = () => {
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.download = "ADIL_CV.pdf"; // File name for download
+    link.href = "/RufanCV.pdf"; // File in public folder, no import required
+    link.click();
+  };
+
   return (
     <div className="main_home">
       <div className="home_text_container">
@@ -11,7 +18,9 @@ const Home = () => {
         </div>
         <div className="home_btn_container">
           <button className="home_btn">Hire Me</button>
-          <button className="home_btn">Get CV</button>
+          <button className="home_btn" onClick={handleDownload}>
+            Get CV
+          </button>
         </div>
       </div>
       <div className="home_img_container">

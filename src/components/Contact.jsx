@@ -65,8 +65,6 @@ const Contact = () => {
           className="contact_text_area"
           name="contact_message"
           placeholder="Message"
-          value={formData.message}
-          onChange={handleChange}
           required
         ></textarea>
         <button className="button contact_btn" type="submit">

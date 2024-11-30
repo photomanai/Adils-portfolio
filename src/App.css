@@ -314,14 +314,26 @@
 
 .contact_form {
   /* width: 40%; */
-  max-width: 400px;
-  min-width: 400px;
+  width: 40%;
   display: flex;
   flex-direction: column;
 }
 
 .contact_input,
 .contact_text_area {
-  width: 100%;
-  padding: 10px;
+  padding: 10px 30px;
+  margin: 5px 10px;
+  font-size: 18px;
+  border: 0;
+  background-color: var(--accent-color);
+  border-radius: 5px;
+  color: var(--text-color);
+  outline: none;
+  &::placeholder {
+    color: var(--secondary-text-color);
+  }
+}
+
+.contact_text_area {
+  height: 200px;
 }
