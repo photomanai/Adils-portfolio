@@ -16,7 +16,7 @@ import ProjectE from "../assets/ProjectE.png";
 const Projects = () => {
   const projects = [
     {
-      name: "SynoProject",
+      name: "Syno Project",
       description:
         "A comprehensive project built with React, Redux Toolkit, TypeScript, React Router, and Firebase Firestore. Features include API integration with Axios, form validation using Formik and Yup, email functionality with EmailJS, and hosting support.",
       img: SynoFilms,
@@ -32,7 +32,7 @@ const Projects = () => {
       hostLink: null,
     },
     {
-      name: "ZuialDemo",
+      name: "Zuial Demo",
       description:
         "A static website built with HTML, CSS, and JavaScript, showcasing front-end design and layout skills.",
       img: Zuical,
@@ -40,7 +40,7 @@ const Projects = () => {
       hostLink: null,
     },
     {
-      name: "MassimoDuttiClone",
+      name: "MassimoDutti Clone",
       description:
         "A replica of the Massimo Dutti website created using React, focusing on UI/UX design and functionality replication.",
       img: MassimoDutti,
@@ -64,7 +64,7 @@ const Projects = () => {
       hostLink: null,
     },
     {
-      name: "ECommerce",
+      name: "E Commerce",
       description:
         "An e-commerce platform built with React, Redux Toolkit, and React Router. Includes API integration using Axios and data persistence with LocalStorage.",
       img: Ecommerce,
@@ -72,7 +72,7 @@ const Projects = () => {
       hostLink: null,
     },
     {
-      name: "TodoSite",
+      name: "Todo Site",
       description:
         "A simple to-do application built with React and TypeScript. Uses LocalStorage for data persistence.",
       img: TodoList,
@@ -80,7 +80,7 @@ const Projects = () => {
       hostLink: null,
     },
     {
-      name: "TicTacToeGameReact",
+      name: "TicTacToe Game React",
       description:
         "A classic Tic Tac Toe game implemented using React, showcasing basic state management and interactivity.",
       img: Xox,
@@ -88,7 +88,7 @@ const Projects = () => {
       hostLink: null,
     },
     {
-      name: "ReactCurrencyApp",
+      name: "React Currency App",
       description:
         "A currency conversion app built with React, fetching real-time exchange rates via APIs using Axios.",
       img: Currency,

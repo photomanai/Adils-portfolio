@@ -141,8 +141,13 @@ a {
   border-radius: 0 5px 5px 0;
 }
 
+.hidden_slide {
+  display: none;
+}
+
 .slidebar_icon {
   box-sizing: content-box;
+  font-size: 32px;
   padding: 10px;
   background-color: var(--accent-color);
   margin: 5px;
