@@ -70,7 +70,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 50;
   padding: 10px 30px;
   display: flex;
   align-items: center;
@@ -111,7 +111,8 @@
 }
 
 .slidebar_container {
-  position: absolute;
+  position: fixed;
+  z-index: 20;
   top: 50%;
   left: 0;
   height: 35vh;
@@ -246,4 +247,81 @@
 .skils_container {
   margin: 10px;
   width: 100%;
+}
+
+.main_projects {
+  max-width: 95%;
+}
+
+.projects_container {
+  width: 95%;
+  margin: 20px auto;
+}
+
+.project_container {
+  display: flex;
+  background-color: var(--tertiary-color);
+  padding: 15px;
+  margin: 50px 10px;
+  border-radius: 20px;
+}
+
+.project_container:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.project_container:nth-child(odd) .project_about_container {
+  align-items: start;
+}
+
+.project_container:nth-child(odd) .project_description {
+  text-align: left;
+}
+
+.project_about_container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  padding: 15px;
+}
+
+.project_title {
+  margin: 10px;
+  color: var(--text-color);
+}
+
+.project_description {
+  text-align: right;
+  color: var(--secondary-text-color);
+  margin: 10px;
+}
+
+.project_btn_container {
+  margin: 10px;
+}
+
+.project_img_container {
+  width: 50%;
+  border-radius: 10px;
+}
+
+.project_img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.contact_form {
+  /* width: 40%; */
+  max-width: 400px;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact_input,
+.contact_text_area {
+  width: 100%;
+  padding: 10px;
 }
