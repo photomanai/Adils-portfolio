@@ -4,8 +4,8 @@ import homeRight from "../assets/home-right.png";
 const Home = () => {
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.download = "AdilAbdulkerim_CV.pdf"; // İndirilecek dosya adı
-    link.href = "/Adils-portfolio/ADIL_CV.pdf"; // public klasöründen erişim yolu
+    link.download = "Adil_CV.pdf"; // İndirilecek dosya adı
+    link.href = "/Adils-portfolio/Adil_CV.pdf"; // public klasöründen erişim yolu
     link.click();
   };
 
