@@ -1,79 +1,38 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
-import { PKEYex, SIDex, TIDex } from "../EmailJsKeys";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    user_name: "",
-    user_email: "",
-    user_message: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-    console.log(formData);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const emailJsData = {
-      user_name: formData.user_name,
-      user_email: formData.user_email,
-      message: formData.user_message,
-    };
-
-    const SID = SIDex;
-    const TID = TIDex;
-    const PKEY = PKEYex;
-
-    emailjs.send(SID, TID, emailJsData, PKEY).then(
-      () => {
-        alert("Message sent successfully!");
-        setFormData({ user_name: "", user_email: "", user_message: "" });
-      },
-      (error) => {
-        alert("An error occurred: " + JSON.stringify(error));
-      }
-    );
+  const myDatas = {
+    fullname: "Adil",
+    mail: "adilabdulkerimov68@gmail.com",
+    phoneNum: "+994 10 310 02 06",
   };
 
   return (
-    <div className="main" id="contact">
-      <h1 className="header">Contact</h1>
-      <form onSubmit={handleSubmit} className="contact_form">
-        <input
-          className="contact_input"
-          type="text"
-          name="user_name"
-          placeholder="Name"
-          value={formData.user_name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          className="contact_input"
-          type="email"
-          name="user_email"
-          placeholder="Email"
-          value={formData.user_email}
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          className="contact_text_area"
-          name="user_message"
-          placeholder="Message"
-          value={formData.user_message}
-          onChange={handleChange}
-          required
-        ></textarea>
-        <button className="button contact_btn" type="submit">
-          Submit
-        </button>
-      </form>
-    </div>
+    <section className="contact">
+      <div className="contact__wrapper">
+        <div className="contact__header">
+          <div className="contact__line"></div>
+          <h2 className="contact__title">Contact Information</h2>
+          <div className="contact__line"></div>
+        </div>
+
+        <div className="contact__card">
+          <div className="contact__item">
+            <h3 className="contact__label">Email Address</h3>
+            <a href={`mailto:${myDatas.mail}`} className="contact__detail">
+              {myDatas.mail}
+            </a>
+          </div>
+
+          <div className="contact__item">
+            <h3 className="contact__label">Phone Number</h3>
+            <a href={`tel:${myDatas.phoneNum}`} className="contact__detail">
+              {myDatas.phoneNum}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

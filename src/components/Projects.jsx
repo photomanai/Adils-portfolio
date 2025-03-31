@@ -1,6 +1,7 @@
 import React from "react";
 import Project from "./Project";
 import AppLab from "../assets/AppLab.png";
+import Devetly from "../assets/Devetly.png";
 import BlackJack from "../assets/BlackJack.png";
 import Currency from "../assets/Currency.png";
 import Ecommerce from "../assets/Ecommerse.png";
@@ -15,6 +16,14 @@ import ProjectE from "../assets/ProjectE.png";
 
 const Projects = () => {
   const projects = [
+    {
+      name: "Devetly Project",
+      description:
+        "Devetly allows users to quickly send invitation messages by selecting contacts from their phone. Invitations can be shared via WhatsApp and other platforms for events and seminars. The project is built using React Native, Redux, and Node.js.",
+      img: Devetly,
+      gitHubLink: null,
+      hostLink: "https://devetly.vercel.app",
+    },
     {
       name: "Syno Project",
       description:
@@ -32,7 +41,7 @@ const Projects = () => {
       hostLink: null,
     },
     {
-      name: "Zuial Demo",
+      name: "Zucial Demo",
       description:
         "A static website built with HTML, CSS, and JavaScript, showcasing front-end design and layout skills.",
       img: Zuical,
