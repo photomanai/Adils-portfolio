@@ -12,7 +12,7 @@ const Contact = () => {
       <div className="contact__wrapper">
         <div className="contact__header">
           <div className="contact__line"></div>
-          <h2 className="contact__title">Contact Information</h2>
+          <h2 className="contact__title ">Contact Information</h2>
           <div className="contact__line"></div>
         </div>
 

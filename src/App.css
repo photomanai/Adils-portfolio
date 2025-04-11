@@ -30,7 +30,7 @@ a {
     position: absolute;
     transform: translate(0, 1400%);
     content: "";
-    width: 38%;
+    width: 28%;
     height: 3px;
     background-color: var(--accent-color);
   }

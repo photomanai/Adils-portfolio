@@ -44,16 +44,15 @@ const Skils = () => {
     <div className="main_skils main">
       <h1 className="header">Skils</h1>
       <p className="skils_paragraf">
-        "I am a developer with strong experience in web development,
-        specializing in advanced technologies such as React, TypeScript, Redux,
-        and Vite. In frontend projects, I manage forms using Formik and Yup,
-        optimizing the process of validating user data. I work with APIs using
-        tools like Redux Toolkit, Thunk, Axios, Fetch, and Ajax. I manage
-        application routing with React Router and store data with Google
-        Firestore. Currently, I am expanding my knowledge in backend development
-        and continuously learning modern technologies to become a full-stack
-        developer. I adhere to clean and optimized coding principles and always
-        test new technologies in my projects."
+        "I am a versatile Full-Stack Developer with proficiency in both
+        front-end and back-end technologies, including JavaScript, React,
+        Node.js, and MongoDB. I have experience in building scalable web and
+        mobile applications using tools like Redux, Express.js, and Docker. In
+        addition, I am currently expanding my knowledge in cybersecurity, with
+        hands-on experience in tools like Kali Linux, Wireshark, Metasploit, and
+        Nmap. My goal is to integrate secure coding practices into every project
+        while continuing to grow my expertise in web development and
+        cybersecurity. "
       </p>
       <div className="skils_container">
         {skillsIcon &&

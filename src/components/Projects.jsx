@@ -13,6 +13,7 @@ import Wheter from "../assets/Wheter.png";
 import Xox from "../assets/xox.png";
 import Zuical from "../assets/Zuical.png";
 import ProjectE from "../assets/ProjectE.png";
+import SynoSites from "../assets/SynoSites.png";
 
 const Projects = () => {
   const projects = [
@@ -33,98 +34,23 @@ const Projects = () => {
       hostLink: "https://synofilms-e2b37.web.app/",
     },
     {
-      name: "ProjectE",
+      name: "Syno Sites",
       description:
-        "A static website developed with HTML and CSS, demonstrating creative design and styling skills.",
-      img: ProjectE,
-      gitHubLink: "https://github.com/photomanai/DarkAndYellow",
-      hostLink: null,
-    },
-    {
-      name: "Zucial Demo",
-      description:
-        "A static website built with HTML, CSS, and JavaScript, showcasing front-end design and layout skills.",
-      img: Zuical,
-      gitHubLink: "https://github.com/photomanai/ZuialDemo",
-      hostLink: null,
-    },
-    {
-      name: "MassimoDutti Clone",
-      description:
-        "A replica of the Massimo Dutti website created using React, focusing on UI/UX design and functionality replication.",
-      img: MassimoDutti,
-      gitHubLink: "https://github.com/photomanai/MassimoDuttiClone",
-      hostLink: null,
-    },
-    {
-      name: "Penguen",
-      description:
-        "A project combining HTML, CSS, and Node.js for front-end design and server-side functionality.",
-      img: Penguen,
-      gitHubLink: "https://github.com/photomanai/Penguen",
-      hostLink: null,
-    },
-    {
-      name: "AppLab",
-      description:
-        "A static website developed with HTML and CSS, demonstrating creative design and styling skills.",
-      img: AppLab,
-      gitHubLink: "https://github.com/photomanai/AppLab",
-      hostLink: null,
-    },
-    {
-      name: "E Commerce",
-      description:
-        "An e-commerce platform built with React, Redux Toolkit, and React Router. Includes API integration using Axios and data persistence with LocalStorage.",
-      img: Ecommerce,
-      gitHubLink: "https://github.com/photomanai/ECommerse",
-      hostLink: null,
-    },
-    {
-      name: "Todo Site",
-      description:
-        "A simple to-do application built with React and TypeScript. Uses LocalStorage for data persistence.",
-      img: TodoList,
-      gitHubLink: "https://github.com/photomanai/TodoSite",
-      hostLink: null,
-    },
-    {
-      name: "TicTacToe Game React",
-      description:
-        "A classic Tic Tac Toe game implemented using React, showcasing basic state management and interactivity.",
-      img: Xox,
-      gitHubLink: "https://github.com/photomanai/TicTacTouGameReact",
-      hostLink: null,
-    },
-    {
-      name: "React Currency App",
-      description:
-        "A currency conversion app built with React, fetching real-time exchange rates via APIs using Axios.",
-      img: Currency,
-      gitHubLink: "https://github.com/photomanai/ReactCurrencyApp",
-      hostLink: null,
-    },
-    {
-      name: "Weather",
-      description:
-        "A weather application created with HTML, CSS, and JavaScript. Fetches live weather data from an API using Fetch.",
-      img: Wheter,
-      gitHubLink: "https://github.com/photomanai/Weather",
-      hostLink: null,
-    },
-    {
-      name: "BlackJack",
-      description:
-        "A Python-based Blackjack game demonstrating logic programming and algorithm design.",
-      img: BlackJack,
-      gitHubLink: "https://github.com/photomanai/BlackJack",
-      hostLink: null,
+        "Syno Sites is a platform that offers modern, secure websites and web applications built with advanced technologies. It provides tailored web solutions, scalable back-end services, and custom web applications designed to meet your digital needs.",
+      img: SynoSites,
+      gitHubLink: null,
+      hostLink: "https://syno-sites.vercel.app/",
     },
   ];
 
   return (
     <div className="main main_projects" id="projects">
-      <h1 className="header">Projects</h1>
+      <h1 className="header">Some Projects</h1>
+      <p>
+        If you would like to explore my other projects, including
+        CyberSecure-Tools, apps, websites, back-end solutions, and more, please
+        visit my GitHub.
+      </p>
       <div className="projects_container">
         {projects &&
           projects.map((project, index) => (
