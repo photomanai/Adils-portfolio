@@ -26,15 +26,16 @@ const Portfolio = () => {
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const setCanvasDimensions = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    setCanvasDimensions();
 
     const columns = Math.floor(canvas.width / 20);
-    const drops = [];
-
-    for (let i = 0; i < columns; i++) {
-      drops[i] = Math.random() * canvas.height;
-    }
+    const drops = Array(columns)
+      .fill(1)
+      .map(() => Math.random() * canvas.height);
 
     const chars =
       "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
@@ -48,28 +49,23 @@ const Portfolio = () => {
 
       for (let i = 0; i < drops.length; i++) {
         const char = chars[Math.floor(Math.random() * chars.length)];
-        ctx.fillText(char, i * 20, drops[i]);
+        ctx.fillText(char, i * 20, drops[i] * 20);
 
-        if (drops[i] > canvas.height && Math.random() > 0.975) {
+        if (drops[i] * 20 > canvas.height && Math.random() > 0.975) {
           drops[i] = 0;
         }
-        drops[i] += 20;
+        drops[i]++;
       }
     };
 
     const interval = setInterval(draw, 50);
     matrixRef.current = interval;
 
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", setCanvasDimensions);
 
     return () => {
       clearInterval(interval);
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", setCanvasDimensions);
     };
   }, []);
 
@@ -92,7 +88,7 @@ const Portfolio = () => {
       title: "Syno Films",
       description:
         "Film discovery platform with React and Firebase backend integration.",
-      link: "https://synofilms-e2b37.web.app/",
+      link: "https://synofilms-e2b37.web.app/home",
       type: "live",
     },
     {
@@ -148,14 +144,14 @@ const Portfolio = () => {
     },
     {
       title: "🗄️ Database",
-      skills: ["MongoDB", "MySQL", "Database Design", "Query Optimization"],
+      skills: ["MongoDB", "MySQL"],
       pulse: false,
     },
     {
       title: "🔧 Security Tools",
       skills: [
         "Nmap",
-        "Nikto",
+        "Metasploit",
         "Burp Suite",
         "Wireshark",
         "Custom Tool Development",
@@ -174,6 +170,7 @@ const Portfolio = () => {
           <li>
             <button
               onClick={() => scrollToSection("about")}
+              className="nav-link"
               style={styles.navLink}
             >
               About
@@ -182,6 +179,7 @@ const Portfolio = () => {
           <li>
             <button
               onClick={() => scrollToSection("projects")}
+              className="nav-link"
               style={styles.navLink}
             >
               Projects
@@ -190,6 +188,7 @@ const Portfolio = () => {
           <li>
             <button
               onClick={() => scrollToSection("skills")}
+              className="nav-link"
               style={styles.navLink}
             >
               Skills
@@ -198,6 +197,7 @@ const Portfolio = () => {
           <li>
             <button
               onClick={() => scrollToSection("contact")}
+              className="nav-link"
               style={styles.navLink}
             >
               Contact
@@ -207,7 +207,7 @@ const Portfolio = () => {
       </nav>
 
       {/* About Section */}
-      <div style={styles.terminalWindow}>
+      <div style={styles.terminalWindow} className="terminal-window">
         <div style={styles.terminalHeader}>
           <div style={styles.terminalButtons}>
             <div style={{ ...styles.btn, ...styles.btnClose }}></div>
@@ -217,8 +217,10 @@ const Portfolio = () => {
           <div style={styles.terminalTitle}>adil@security:~$ whoami</div>
         </div>
 
-        <section id="about" style={styles.section}>
-          <h1 style={{ ...styles.h1, ...styles.glitch }}>Adil Abdulkerim</h1>
+        <section id="about" style={styles.section} className="section">
+          <h1 style={{ ...styles.h1, ...styles.glitch }} className="main-h1">
+            Adil Abdulkerim
+          </h1>
           <div style={{ ...styles.subtitle, ...styles.typing }}>
             {typedText}
             <span style={styles.cursor}>|</span>
@@ -234,7 +236,7 @@ const Portfolio = () => {
       </div>
 
       {/* Projects Section */}
-      <div style={styles.terminalWindow}>
+      <div style={styles.terminalWindow} className="terminal-window">
         <div style={styles.terminalHeader}>
           <div style={styles.terminalButtons}>
             <div style={{ ...styles.btn, ...styles.btnClose }}></div>
@@ -244,18 +246,20 @@ const Portfolio = () => {
           <div style={styles.terminalTitle}>adil@security:~$ ls projects/</div>
         </div>
 
-        <section id="projects" style={styles.section}>
-          <h2 style={styles.h2}>🚀 Published Projects</h2>
-          <div style={styles.projectsGrid}>
+        <section id="projects" style={styles.section} className="section">
+          <h2 style={styles.h2} className="main-h2">
+            🚀 Published Projects
+          </h2>
+          <div style={styles.projectsGrid} className="projects-grid">
             {projects.map((project, index) => (
               <ProjectCard key={index} project={project} />
             ))}
           </div>
 
-          <h2 style={{ ...styles.h2, marginTop: "50px" }}>
+          <h2 style={{ ...styles.h2, marginTop: "50px" }} className="main-h2">
             🛡️ Cybersecurity Projects
           </h2>
-          <div style={styles.projectsGrid}>
+          <div style={styles.projectsGrid} className="projects-grid">
             {securityProjects.map((project, index) => (
               <ProjectCard key={index} project={project} />
             ))}
@@ -266,6 +270,7 @@ const Portfolio = () => {
               href="https://github.com/photomanai"
               target="_blank"
               rel="noopener noreferrer"
+              className="project-link"
               style={styles.projectLink}
             >
               View All Projects on GitHub →
@@ -275,7 +280,7 @@ const Portfolio = () => {
       </div>
 
       {/* Skills Section */}
-      <div style={styles.terminalWindow}>
+      <div style={styles.terminalWindow} className="terminal-window">
         <div style={styles.terminalHeader}>
           <div style={styles.terminalButtons}>
             <div style={{ ...styles.btn, ...styles.btnClose }}></div>
@@ -287,9 +292,11 @@ const Portfolio = () => {
           </div>
         </div>
 
-        <section id="skills" style={styles.section}>
-          <h2 style={styles.h2}>💻 Technical Skills</h2>
-          <div style={styles.skillsContainer}>
+        <section id="skills" style={styles.section} className="section">
+          <h2 style={styles.h2} className="main-h2">
+            💻 Technical Skills
+          </h2>
+          <div style={styles.skillsContainer} className="skills-container">
             {skillCategories.map((category, index) => (
               <SkillCategory key={index} category={category} />
             ))}
@@ -298,7 +305,7 @@ const Portfolio = () => {
       </div>
 
       {/* Contact Section */}
-      <div style={styles.terminalWindow}>
+      <div style={styles.terminalWindow} className="terminal-window">
         <div style={styles.terminalHeader}>
           <div style={styles.terminalButtons}>
             <div style={{ ...styles.btn, ...styles.btnClose }}></div>
@@ -310,9 +317,11 @@ const Portfolio = () => {
           </div>
         </div>
 
-        <section id="contact" style={styles.section}>
-          <h2 style={styles.h2}>📬 Get In Touch</h2>
-          <div style={styles.contactInfo}>
+        <section id="contact" style={styles.section} className="section">
+          <h2 style={styles.h2} className="main-h2">
+            📬 Get In Touch
+          </h2>
+          <div style={styles.contactInfo} className="contact-info">
             <div style={styles.contactItem}>
               <h3 style={styles.contactTitle}>📧 Email</h3>
               <a
@@ -373,6 +382,7 @@ const ProjectCard = ({ project }) => {
         href={project.link}
         target="_blank"
         rel="noopener noreferrer"
+        className="project-link"
         style={styles.projectLink}
       >
         {project.type === "live" ? "View Live →" : "GitHub →"}
@@ -412,9 +422,8 @@ const styles = {
     color: "#00ff00",
     minHeight: "100vh",
     position: "relative",
-    overflow: "hidden",
+    overflowX: "hidden",
   },
-
   matrixCanvas: {
     position: "fixed",
     top: 0,
@@ -425,7 +434,6 @@ const styles = {
     opacity: 0.1,
     pointerEvents: "none",
   },
-
   nav: {
     position: "fixed",
     top: "20px",
@@ -436,8 +444,8 @@ const styles = {
     borderRadius: "5px",
     padding: "10px",
     backdropFilter: "blur(10px)",
+    transition: "all 0.3s ease-in-out",
   },
-
   navList: {
     listStyle: "none",
     display: "flex",
@@ -445,29 +453,24 @@ const styles = {
     margin: 0,
     padding: 0,
   },
-
   navLink: {
     color: "#00ff00",
     background: "none",
     border: "none",
     fontSize: "14px",
     cursor: "pointer",
+    fontFamily: "'Courier New', monospace",
     transition: "all 0.3s",
-    ":hover": {
-      color: "#ffffff",
-      textShadow: "0 0 10px #00ff00",
-    },
   },
-
   terminalWindow: {
     background: "rgba(0, 20, 0, 0.9)",
     border: "2px solid #00ff00",
     borderRadius: "10px",
-    margin: "20px",
+    margin: "20px auto",
     backdropFilter: "blur(10px)",
     boxShadow: "0 0 30px rgba(0, 255, 0, 0.3)",
+    maxWidth: "1200px",
   },
-
   terminalHeader: {
     background: "#1a1a1a",
     padding: "10px 20px",
@@ -476,32 +479,26 @@ const styles = {
     alignItems: "center",
     borderRadius: "8px 8px 0 0",
   },
-
   terminalButtons: {
     display: "flex",
     gap: "8px",
     marginRight: "15px",
   },
-
   btn: {
     width: "12px",
     height: "12px",
     borderRadius: "50%",
   },
-
   btnClose: { background: "#ff5555" },
   btnMinimize: { background: "#ffaa00" },
   btnMaximize: { background: "#00ff00" },
-
   terminalTitle: {
     color: "#00ff00",
     fontSize: "14px",
   },
-
   section: {
     padding: "40px",
   },
-
   h1: {
     color: "#ffffff",
     textShadow: "0 0 10px #00ff00",
@@ -510,18 +507,17 @@ const styles = {
     marginBottom: "10px",
     margin: 0,
   },
-
   h2: {
     color: "#ffffff",
     textShadow: "0 0 10px #00ff00",
     marginBottom: "20px",
     fontSize: "1.8rem",
+    borderBottom: "1px solid #00ff00",
+    paddingBottom: "10px",
   },
-
   glitch: {
     animation: "glitch 2s infinite",
   },
-
   subtitle: {
     textAlign: "center",
     color: "#00ff00",
@@ -529,17 +525,14 @@ const styles = {
     marginBottom: "40px",
     minHeight: "30px",
   },
-
   typing: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
-
   cursor: {
     animation: "blink 1s infinite",
   },
-
   aboutText: {
     textAlign: "center",
     lineHeight: 1.8,
@@ -547,14 +540,12 @@ const styles = {
     margin: "0 auto",
     color: "#00ff00",
   },
-
   projectsGrid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
     gap: "20px",
     marginTop: "30px",
   },
-
   projectCard: {
     background: "rgba(0, 40, 0, 0.6)",
     border: "1px solid #00ff00",
@@ -563,20 +554,20 @@ const styles = {
     transition: "all 0.3s",
     position: "relative",
     overflow: "hidden",
+    display: "flex",
+    flexDirection: "column",
   },
-
   projectTitle: {
     color: "#ffffff",
     marginBottom: "10px",
     fontSize: "1.2rem",
   },
-
   projectDescription: {
     color: "#00ff00",
     marginBottom: "15px",
     lineHeight: 1.6,
+    flexGrow: 1,
   },
-
   projectLink: {
     display: "inline-block",
     color: "#00ff00",
@@ -585,24 +576,18 @@ const styles = {
     border: "1px solid #00ff00",
     borderRadius: "3px",
     transition: "all 0.3s",
-    ":hover": {
-      background: "#00ff00",
-      color: "#000000",
-    },
+    alignSelf: "flex-start",
   },
-
   githubLink: {
     textAlign: "center",
     marginTop: "30px",
   },
-
   skillsContainer: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
     gap: "30px",
     marginTop: "30px",
   },
-
   skillCategory: {
     background: "rgba(0, 40, 0, 0.6)",
     border: "1px solid #00ff00",
@@ -610,18 +595,15 @@ const styles = {
     padding: "20px",
     transition: "all 0.3s",
   },
-
   pulse: {
     animation: "pulse 2s infinite",
   },
-
   skillCategoryTitle: {
     color: "#ffffff",
     marginBottom: "15px",
     textAlign: "center",
     fontSize: "1.1rem",
   },
-
   skillItem: {
     margin: "8px 0",
     padding: "8px 12px",
@@ -630,7 +612,6 @@ const styles = {
     borderRadius: "3px",
     fontSize: "14px",
   },
-
   contactInfo: {
     display: "flex",
     justifyContent: "center",
@@ -638,7 +619,6 @@ const styles = {
     flexWrap: "wrap",
     marginTop: "30px",
   },
-
   contactItem: {
     textAlign: "center",
     padding: "20px",
@@ -648,13 +628,11 @@ const styles = {
     minWidth: "200px",
     transition: "all 0.3s",
   },
-
   contactTitle: {
     color: "#ffffff",
     marginBottom: "10px",
     fontSize: "1.1rem",
   },
-
   contactLink: {
     color: "#00ff00",
     textDecoration: "none",
@@ -663,8 +641,8 @@ const styles = {
   },
 };
 
-// CSS animations would be added via a style tag or CSS file
-const cssAnimations = `
+// CSS animations and responsive styles
+const cssStyles = `
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
@@ -680,29 +658,77 @@ const cssAnimations = `
 }
 
 @keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.7; }
-  100% { opacity: 1; }
+  0% { box-shadow: 0 0 15px rgba(0, 255, 0, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(0, 255, 0, 0.5); }
+  100% { box-shadow: 0 0 15px rgba(0, 255, 0, 0.2); }
+}
+
+/* Hover effects for buttons that cannot be done with inline styles */
+.nav-link:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px #00ff00;
+}
+.project-link:hover {
+    background: #00ff00 !important;
+    color: #000000 !important;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #00ff00;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+  /* Navigation */
   nav {
     position: relative !important;
-    margin: 20px !important;
-    top: 0 !important;
-    right: 0 !important;
+    top: auto !important;
+    right: auto !important;
+    margin: 20px auto !important;
+    width: calc(100% - 40px);
   }
   
   nav ul {
     justify-content: center;
     flex-wrap: wrap;
+    gap: 10px;
   }
   
-  .projects-grid {
-    grid-template-columns: 1fr !important;
+  /* Layout and Spacing */
+  .terminal-window {
+      margin: 10px !important;
+  }
+
+  .section {
+      padding: 20px !important;
   }
   
+  /* Typography */
+  .main-h1 {
+      font-size: 2rem !important;
+  }
+
+  .main-h2 {
+      font-size: 1.5rem !important;
+  }
+
+  .subtitle {
+      font-size: 1rem !important;
+  }
+
+  /* Grid and Flex Layouts */
+  .projects-grid,
   .skills-container {
     grid-template-columns: 1fr !important;
   }
@@ -710,33 +736,20 @@ const cssAnimations = `
   .contact-info {
     flex-direction: column !important;
     align-items: center !important;
+    gap: 20px !important;
   }
-}
-
-/* Scrollbar Styling */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #00ff00;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #ffffff;
 }
 `;
 
 // Add CSS to head
 if (typeof document !== "undefined") {
-  const styleElement = document.createElement("style");
-  styleElement.textContent = cssAnimations;
-  document.head.appendChild(styleElement);
+  const styleElement = document.getElementById("app-styles");
+  if (!styleElement) {
+    const newStyleElement = document.createElement("style");
+    newStyleElement.id = "app-styles";
+    newStyleElement.textContent = cssStyles;
+    document.head.appendChild(newStyleElement);
+  }
 }
 
 export default Portfolio;
