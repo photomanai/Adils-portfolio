@@ -112,7 +112,7 @@ const Portfolio = () => {
       title: "MacChanger",
       description:
         "Network security tool for MAC address manipulation and network anonymization.",
-      link: "https://github.com/photomanai/MacChanger",
+      link: "https://github.com/photomanai/MacChange",
       type: "github",
     },
   ];
